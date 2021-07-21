@@ -1,0 +1,185 @@
+﻿<Window x:Class="AZS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AZS"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="750" Width="1200">
+
+    <Grid ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="700"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" ShowGridLines="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="130"/>
+                <RowDefinition Height="470"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" ShowGridLines="True" Background="Aquamarine">
+                <TextBlock Text="Автозаправка" FontSize="30" Height="50" HorizontalAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Row="1" ShowGridLines="True" Background="Aquamarine" >
+                <Button Content="Новый покупатель" Background="SteelBlue"  FontSize="20" 
+                        Height="40" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left"
+                        Click="Button_Click">
+                </Button>
+
+                <TextBlock Text="Выбор топлива" FontSize="20" 
+                           Height="40" Width="300" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                <ComboBox x:Name="SelectFuel" SelectionChanged="SelectFuel_SelectionChanged" 
+                          FontSize="20" Height="40" Width="200" VerticalAlignment="Bottom" Margin="100,0,0,0" >
+                    <TextBlock Text="АИ-92"/>
+                    <TextBlock Text="АИ-95"/>
+                    <TextBlock Text="АИ-98"/>
+                    <TextBlock Text="ДТ"/>
+                </ComboBox> 
+            </Grid>
+
+            <Grid Grid.Row="2" ShowGridLines="True" Background="Aquamarine">
+                <TextBlock Text="Цена за 1 литр" FontSize="15" 
+                           Height="30" Width="150" Margin="10,10,340,100" />
+
+                <StackPanel Orientation="Horizontal" Height="30" Width="300" Margin="180,10,25,100" >
+                    <RadioButton x:Name="Option_Quantity" GroupName="Volume_Selection" Content="Оплата за литры"  
+                                 Checked="RadioButton_Checked" Width="170" FontSize="15" />
+                    <RadioButton x:Name="Option_Summa" GroupName="Volume_Selection" Content="Оплата суммой" 
+                                 Checked="RadioButton_Checked"  Width="150" FontSize="15" />
+                </StackPanel>
+
+                <TextBlock x:Name="Fuel_Price" Background="White" FontSize="20" TextAlignment="Center"
+                           Height="40" Width="150" Margin="15,50,350,0" />
+
+                <TextBox x:Name="Fuel_Quantity" MaxLength="3" Background="White" 
+                         FontSize="20" TextAlignment="Center"
+                         Height="40" Width="150" Margin="175,50,175,0"
+                         TextChanged="Fuel_Quantity_TextChanged" />
+
+                <TextBox x:Name="Fuel_Summa" MaxLength="4" Background="White" 
+                         FontSize="20" TextAlignment="Center"
+                         Height="40" Width="150" Margin="335,50,0,0" 
+                         TextChanged="Fuel_Summa_TextChanged" />
+
+            </Grid>
+
+            <Grid Grid.Row="3" ShowGridLines="True" Background="LightBlue">
+                <StackPanel>
+                    <TextBlock x:Name="Option_Fuel" Text="Топливо к оплате, рублей" FontSize="20" Height="40" />
+                    <TextBlock x:Name="Result_Fuel" FontSize="20" Height="40" />
+                    <TextBlock Text="За покупки в мини-кафе к оплате, рублей" FontSize="20" Height="40" />
+                    <TextBlock x:Name="Result_Cafe" FontSize="20" Height="40" />
+                    <TextBlock Text="Всего к оплате, рублей" FontSize="20" Height="40" />
+                    <TextBlock x:Name="Result_Total" FontSize="20" Height="40" />
+                    <TextBlock  Height="40" />
+                    <Button x:Name="Payment" Content="Расчет" Background="CadetBlue"
+                            FontSize="20" Height="40" Click="Payment_Click"/>
+                    <TextBlock Text="Выручка за день" Height="40" FontSize="20" />
+                    <TextBlock x:Name="Day_Income" FontSize="20" Height="40" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="1" ShowGridLines="True" Background="Bisque">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>                
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Мини-кафе" Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="4"  Height="40" FontSize="30" TextAlignment="Center"/>
+            <TextBlock Text="Товар" Grid.Row="2"  Grid.Column="0" Height="30" FontSize="20" TextAlignment="Center"/>
+            <TextBlock Text="Цена" Grid.Row="2" Grid.Column="1" Height="30" FontSize="20" TextAlignment="Center"/>
+            <TextBlock Text="Кол-во" Grid.Row="2" Grid.Column="2" Height="30" FontSize="20" TextAlignment="Center"/>
+            <TextBlock Text="Сумма" Grid.Row="2" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center"/>
+
+            <CheckBox x:Name="Goods01" IsChecked="False"  Grid.Row="3" Grid.Column="0" Height="30" FontSize="20" Content="Кофе американо" Checked="Goods01_Checked" Unchecked="Goods01_Unchecked"/>
+            <CheckBox x:Name="Goods02" IsChecked="False"  Grid.Row="4" Grid.Column="0" Height="30" FontSize="20" Content="Кофе капучино" Checked="Goods02_Checked" Unchecked="Goods02_Unchecked"/>
+            <CheckBox x:Name="Goods03" IsChecked="False"  Grid.Row="5" Grid.Column="0" Height="30" FontSize="20" Content="Чай в ассорт." Checked="Goods03_Checked" Unchecked="Goods03_Unchecked"/>
+            <CheckBox x:Name="Goods04" IsChecked="False"  Grid.Row="6" Grid.Column="0" Height="30" FontSize="20" Content="Вода минеральная с газом" Checked="Goods04_Checked"  Unchecked="Goods04_Unchecked" />
+            <CheckBox x:Name="Goods05" IsChecked="False"  Grid.Row="7" Grid.Column="0" Height="30" FontSize="20" Content="Вода минеральная без газа" Checked="Goods05_Checked"  Unchecked="Goods05_Unchecked" />
+            <CheckBox x:Name="Goods06" IsChecked="False"  Grid.Row="8" Grid.Column="0" Height="30" FontSize="20" Content="Сэндвич в ассорт." Checked="Goods06_Checked"  Unchecked="Goods06_Unchecked" />
+            <CheckBox x:Name="Goods07" IsChecked="False"  Grid.Row="9" Grid.Column="0" Height="30" FontSize="20" Content="Хачапури" Checked="Goods07_Checked"  Unchecked="Goods07_Unchecked" />
+            <CheckBox x:Name="Goods08" IsChecked="False"  Grid.Row="10" Grid.Column="0" Height="30" FontSize="20" Content="Сочень с творогом" Checked="Goods08_Checked"  Unchecked="Goods08_Unchecked" />
+            <CheckBox x:Name="Goods09" IsChecked="False"  Grid.Row="11" Grid.Column="0" Height="30" FontSize="20" Content="Шоколадный батончик Сникерс" Checked="Goods09_Checked"  Unchecked="Goods09_Unchecked" />
+            <CheckBox x:Name="Goods10" IsChecked="False"  Grid.Row="12" Grid.Column="0" Height="30" FontSize="20" Content="Шоколадный батончик Марс" Checked="Goods10_Checked"  Unchecked="Goods10_Unchecked" />
+            <CheckBox x:Name="Goods11" IsChecked="False"  Grid.Row="13" Grid.Column="0" Height="30" FontSize="20" Content="Мороженое Коровка из Креновки" Checked="Goods11_Checked"  Unchecked="Goods11_Unchecked" />
+            <CheckBox x:Name="Goods12" IsChecked="False"  Grid.Row="14" Grid.Column="0" Height="30" FontSize="20" Content="Мороженое Первый вкус" Checked="Goods12_Checked"  Unchecked="Goods12_Unchecked" />
+            <CheckBox x:Name="Goods13" IsChecked="False"  Grid.Row="15" Grid.Column="0" Height="30" FontSize="20" Content="Мороженое Кузя" Checked="Goods13_Checked"  Unchecked="Goods13_Unchecked" />
+            <CheckBox x:Name="Goods14" IsChecked="False"  Grid.Row="16" Grid.Column="0" Height="30" FontSize="20" Content="Жевательная резинка в ассорт." Checked="Goods14_Checked"  Unchecked="Goods14_Unchecked" />
+
+            <TextBlock x:Name="Price01" Grid.Row="3" Grid.Column="1" Height="30" FontSize="20" TextAlignment="Center" Text="160" />
+            <TextBlock x:Name="Price02" Grid.Row="4" Grid.Column="1" Height="30" FontSize="20" TextAlignment="Center" Text="160"/>
+            <TextBlock x:Name="Price03" Grid.Row="5" Grid.Column="1" Height="30" FontSize="20" TextAlignment="Center" Text="50"/>
+            <TextBlock x:Name="Price04" Grid.Row="6" Grid.Column="1" Height="30" FontSize="20" TextAlignment="Center" Text="50"/>
+            <TextBlock x:Name="Price05" Grid.Row="7" Grid.Column="1" Height="30" FontSize="20" TextAlignment="Center" Text="50"/>
+            <TextBlock x:Name="Price06" Grid.Row="8" Grid.Column="1" Height="30" FontSize="20" TextAlignment="Center" Text="150"/>
+            <TextBlock x:Name="Price07" Grid.Row="9" Grid.Column="1" Height="30" FontSize="20" TextAlignment="Center" Text="80"/>
+            <TextBlock x:Name="Price08" Grid.Row="10" Grid.Column="1" Height="30" FontSize="20" TextAlignment="Center" Text="60"/>
+            <TextBlock x:Name="Price09" Grid.Row="11" Grid.Column="1" Height="30" FontSize="20" TextAlignment="Center" Text="70"/>
+            <TextBlock x:Name="Price10" Grid.Row="12" Grid.Column="1" Height="30" FontSize="20" TextAlignment="Center" Text="70"/>
+            <TextBlock x:Name="Price11" Grid.Row="13" Grid.Column="1" Height="30" FontSize="20" TextAlignment="Center" Text="90"/>
+            <TextBlock x:Name="Price12" Grid.Row="14" Grid.Column="1" Height="30" FontSize="20" TextAlignment="Center" Text="80"/>
+            <TextBlock x:Name="Price13" Grid.Row="15" Grid.Column="1" Height="30" FontSize="20" TextAlignment="Center" Text="50"/>
+            <TextBlock x:Name="Price14" Grid.Row="16" Grid.Column="1" Height="30" FontSize="20" TextAlignment="Center" Text="40"/>
+
+            <TextBox x:Name="Quantity01" Grid.Row="3" Grid.Column="2" Height="30" FontSize="20" TextAlignment="Center" IsEnabled="False" TextChanged="Quantity01_TextChanged"/>
+            <TextBox x:Name="Quantity02" Grid.Row="4" Grid.Column="2" Height="30" FontSize="20" TextAlignment="Center" IsEnabled="False" TextChanged="Quantity02_TextChanged"/>
+            <TextBox x:Name="Quantity03" Grid.Row="5" Grid.Column="2" Height="30" FontSize="20" TextAlignment="Center" IsEnabled="False" TextChanged="Quantity03_TextChanged"/>
+            <TextBox x:Name="Quantity04" Grid.Row="6" Grid.Column="2" Height="30" FontSize="20" TextAlignment="Center" IsEnabled="False" TextChanged="Quantity04_TextChanged"/>
+            <TextBox x:Name="Quantity05" Grid.Row="7" Grid.Column="2" Height="30" FontSize="20" TextAlignment="Center" IsEnabled="False" TextChanged="Quantity05_TextChanged"/>
+            <TextBox x:Name="Quantity06" Grid.Row="8" Grid.Column="2" Height="30" FontSize="20" TextAlignment="Center" IsEnabled="False" TextChanged="Quantity06_TextChanged"/>
+            <TextBox x:Name="Quantity07" Grid.Row="9" Grid.Column="2" Height="30" FontSize="20" TextAlignment="Center" IsEnabled="False" TextChanged="Quantity07_TextChanged"/>
+            <TextBox x:Name="Quantity08" Grid.Row="10" Grid.Column="2" Height="30" FontSize="20" TextAlignment="Center" IsEnabled="False" TextChanged="Quantity08_TextChanged"/>
+            <TextBox x:Name="Quantity09" Grid.Row="11" Grid.Column="2" Height="30" FontSize="20" TextAlignment="Center" IsEnabled="False" TextChanged="Quantity09_TextChanged"/>
+            <TextBox x:Name="Quantity10" Grid.Row="12" Grid.Column="2" Height="30" FontSize="20" TextAlignment="Center" IsEnabled="False" TextChanged="Quantity10_TextChanged"/>
+            <TextBox x:Name="Quantity11" Grid.Row="13" Grid.Column="2" Height="30" FontSize="20" TextAlignment="Center" IsEnabled="False" TextChanged="Quantity11_TextChanged"/>
+            <TextBox x:Name="Quantity12" Grid.Row="14" Grid.Column="2" Height="30" FontSize="20" TextAlignment="Center" IsEnabled="False" TextChanged="Quantity12_TextChanged"/>
+            <TextBox x:Name="Quantity13" Grid.Row="15" Grid.Column="2" Height="30" FontSize="20" TextAlignment="Center" IsEnabled="False" TextChanged="Quantity13_TextChanged"/>
+            <TextBox x:Name="Quantity14" Grid.Row="16" Grid.Column="2" Height="30" FontSize="20" TextAlignment="Center" IsEnabled="False" TextChanged="Quantity14_TextChanged"/>
+
+            <TextBlock x:Name="Summa01" Grid.Row="3" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center" />
+            <TextBlock x:Name="Summa02" Grid.Row="4" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center" />
+            <TextBlock x:Name="Summa03" Grid.Row="5" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center" />
+            <TextBlock x:Name="Summa04" Grid.Row="6" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center" />
+            <TextBlock x:Name="Summa05" Grid.Row="7" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center" />
+            <TextBlock x:Name="Summa06" Grid.Row="8" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center" />
+            <TextBlock x:Name="Summa07" Grid.Row="9" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center" />
+            <TextBlock x:Name="Summa09" Grid.Row="11" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center" />
+            <TextBlock x:Name="Summa10" Grid.Row="12" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center" />
+            <TextBlock x:Name="Summa11" Grid.Row="13" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center" />
+            <TextBlock x:Name="Summa12" Grid.Row="14" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center" />
+            <TextBlock x:Name="Summa13" Grid.Row="15" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center" />
+            <TextBlock x:Name="Summa14" Grid.Row="16" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center" />
+          
+        </Grid>
+
+    </Grid>
+</Window>
