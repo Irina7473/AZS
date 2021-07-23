@@ -99,37 +99,7 @@ namespace AZS
             catch { }
             Quantity01.IsEnabled = false;        
         }
-
-        /*
-        private void Quantity_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            double digit =0;
-            double quantity = 0;
-            double price = 0;
-            double summa = 0;
-
-            var symbol = (TextBox)sender;
-            foreach (char d in symbol.Name)
-                if (char.IsDigit(d)) digit = d;
-            if (digit==1)
-            {
-                quantity = double.Parse(Quantity1.Text);
-                price = Double.Parse(Price01.Text);
-                summa = Math.Round(quantity * price, 2);
-                Summa01.Text = summa.ToString();
-            }
-            else if (digit == 2)
-            {
-                quantity = double.Parse(Quantity2.Text);
-                price = Double.Parse(Price02.Text);
-                summa = Math.Round(quantity * price, 2);
-                Summa02.Text = summa.ToString();
-            }
-
-            _cafePayment += summa;
-            Result_Cafe.Text = _cafePayment.ToString();            
-        }*/
-
+              
         private void Quantity01_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
@@ -164,7 +134,16 @@ namespace AZS
             Goods03.IsChecked = false;
             Goods04.IsChecked = false;
             Goods05.IsChecked = false;
-
+            Goods06.IsChecked = false;
+            Goods07.IsChecked = false;
+            Goods08.IsChecked = false;
+            Goods09.IsChecked = false;
+            Goods10.IsChecked = false;
+            Goods11.IsChecked = false;
+            Goods12.IsChecked = false;
+            Goods13.IsChecked = false;
+            Goods14.IsChecked = false;
+            
             _fuelQuantity = 0;
             _fuelPayment = 0;
             _cafePayment = 0;
@@ -173,8 +152,7 @@ namespace AZS
             Result_Fuel.Text = "0";
             Result_Cafe.Text = "0";
             Result_Total.Text = "0";            
-        }
-                    
+        }                    
 
         private void Goods02_Checked(object sender, RoutedEventArgs e)
         {
@@ -254,92 +232,173 @@ namespace AZS
 
         private void Goods06_Checked(object sender, RoutedEventArgs e)
         {
-           
+            Quantity06.IsEnabled = true;
         }
 
         private void Goods06_Unchecked(object sender, RoutedEventArgs e)
         {
-            
+            try
+            {
+                var summa = double.Parse(Summa06.Text);
+                _cafePayment -= summa;
+                Result_Cafe.Text = _cafePayment.ToString();
+                Summa06.Text = "0";
+                Quantity06.Text = "0";
+            }
+            catch { }
+            Quantity06.IsEnabled = false;
         }
 
         private void Goods07_Checked(object sender, RoutedEventArgs e)
         {
-
+            Quantity07.IsEnabled = true;
         }
 
         private void Goods07_Unchecked(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                var summa = double.Parse(Summa07.Text);
+                _cafePayment -= summa;
+                Result_Cafe.Text = _cafePayment.ToString();
+                Summa07.Text = "0";
+                Quantity07.Text = "0";
+            }
+            catch { }
+            Quantity07.IsEnabled = false;
         }
 
         private void Goods08_Checked(object sender, RoutedEventArgs e)
         {
-
+            Quantity08.IsEnabled = true;
         }
 
         private void Goods08_Unchecked(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                var summa = double.Parse(Summa08.Text);
+                _cafePayment -= summa;
+                Result_Cafe.Text = _cafePayment.ToString();
+                Summa08.Text = "0";
+                Quantity08.Text = "0";
+            }
+            catch { }
+            Quantity08.IsEnabled = false;
         }
 
         private void Goods09_Checked(object sender, RoutedEventArgs e)
         {
-
+            Quantity09.IsEnabled = true;
         }
 
         private void Goods09_Unchecked(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                var summa = double.Parse(Summa09.Text);
+                _cafePayment -= summa;
+                Result_Cafe.Text = _cafePayment.ToString();
+                Summa09.Text = "0";
+                Quantity09.Text = "0";
+            }
+            catch { }
+            Quantity09.IsEnabled = false;
         }
 
         private void Goods10_Checked(object sender, RoutedEventArgs e)
         {
-
+            Quantity10.IsEnabled = true;
         }
-
+        
         private void Goods10_Unchecked(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                var summa = double.Parse(Summa10.Text);
+                _cafePayment -= summa;
+                Result_Cafe.Text = _cafePayment.ToString();
+                Summa10.Text = "0";
+                Quantity10.Text = "0";
+            }
+            catch { }
+            Quantity10.IsEnabled = false;
         }
 
         private void Goods11_Checked(object sender, RoutedEventArgs e)
         {
-
+            Quantity11.IsEnabled = true;
         }
 
         private void Goods11_Unchecked(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                var summa = double.Parse(Summa11.Text);
+                _cafePayment -= summa;
+                Result_Cafe.Text = _cafePayment.ToString();
+                Summa11.Text = "0";
+                Quantity11.Text = "0";
+            }
+            catch { }
+            Quantity11.IsEnabled = false;
         }
 
         private void Goods12_Checked(object sender, RoutedEventArgs e)
         {
-
+            Quantity12.IsEnabled = true;
         }
 
         private void Goods12_Unchecked(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                var summa = double.Parse(Summa12.Text);
+                _cafePayment -= summa;
+                Result_Cafe.Text = _cafePayment.ToString();
+                Summa12.Text = "0";
+                Quantity12.Text = "0";
+            }
+            catch { }
+            Quantity12.IsEnabled = false;
         }
 
         private void Goods13_Checked(object sender, RoutedEventArgs e)
         {
-
+            Quantity13.IsEnabled = true;
         }
 
         private void Goods13_Unchecked(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                var summa = double.Parse(Summa13.Text);
+                _cafePayment -= summa;
+                Result_Cafe.Text = _cafePayment.ToString();
+                Summa13.Text = "0";
+                Quantity13.Text = "0";
+            }
+            catch { }
+            Quantity13.IsEnabled = false;
         }
 
         private void Goods14_Checked(object sender, RoutedEventArgs e)
         {
-
+            Quantity14.IsEnabled = true;
         }
 
         private void Goods14_Unchecked(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                var summa = double.Parse(Summa14.Text);
+                _cafePayment -= summa;
+                Result_Cafe.Text = _cafePayment.ToString();
+                Summa14.Text = "0";
+                Quantity14.Text = "0";
+            }
+            catch { }
+            Quantity14.IsEnabled = false;
         }
 
 
@@ -386,47 +445,92 @@ namespace AZS
 
         private void Quantity06_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            var quantity = double.Parse(Quantity06.Text);
+            var price = Double.Parse(Price06.Text);
+            var summa = Math.Round(quantity * price, 2);
+            Summa06.Text = summa.ToString();
+            _cafePayment += summa;
+            Result_Cafe.Text = _cafePayment.ToString();
         }
 
         private void Quantity07_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            var quantity = double.Parse(Quantity07.Text);
+            var price = Double.Parse(Price07.Text);
+            var summa = Math.Round(quantity * price, 2);
+            Summa07.Text = summa.ToString();
+            _cafePayment += summa;
+            Result_Cafe.Text = _cafePayment.ToString();
         }
 
         private void Quantity08_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            var quantity = double.Parse(Quantity08.Text);
+            var price = Double.Parse(Price08.Text);
+            var summa = Math.Round(quantity * price, 2);
+            Summa08.Text = summa.ToString();
+            _cafePayment += summa;
+            Result_Cafe.Text = _cafePayment.ToString();
         }
 
         private void Quantity09_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            var quantity = double.Parse(Quantity09.Text);
+            var price = Double.Parse(Price09.Text);
+            var summa = Math.Round(quantity * price, 2);
+            Summa09.Text = summa.ToString();
+            _cafePayment += summa;
+            Result_Cafe.Text = _cafePayment.ToString();
         }
 
         private void Quantity10_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            var quantity = double.Parse(Quantity10.Text);
+            var price = Double.Parse(Price10.Text);
+            var summa = Math.Round(quantity * price, 2);
+            Summa10.Text = summa.ToString();
+            _cafePayment += summa;
+            Result_Cafe.Text = _cafePayment.ToString();
         }
 
         private void Quantity11_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            var quantity = double.Parse(Quantity11.Text);
+            var price = Double.Parse(Price11.Text);
+            var summa = Math.Round(quantity * price, 2);
+            Summa11.Text = summa.ToString();
+            _cafePayment += summa;
+            Result_Cafe.Text = _cafePayment.ToString();
         }
 
         private void Quantity12_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            var quantity = double.Parse(Quantity12.Text);
+            var price = Double.Parse(Price12.Text);
+            var summa = Math.Round(quantity * price, 2);
+            Summa12.Text = summa.ToString();
+            _cafePayment += summa;
+            Result_Cafe.Text = _cafePayment.ToString();
         }
 
         private void Quantity13_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            var quantity = double.Parse(Quantity13.Text);
+            var price = Double.Parse(Price13.Text);
+            var summa = Math.Round(quantity * price, 2);
+            Summa13.Text = summa.ToString();
+            _cafePayment += summa;
+            Result_Cafe.Text = _cafePayment.ToString();
         }
 
         private void Quantity14_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            var quantity = double.Parse(Quantity14.Text);
+            var price = Double.Parse(Price14.Text);
+            var summa = Math.Round(quantity * price, 2);
+            Summa14.Text = summa.ToString();
+            _cafePayment += summa;
+            Result_Cafe.Text = _cafePayment.ToString();
         }
     }
 }

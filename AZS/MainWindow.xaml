@@ -172,13 +172,15 @@
             <TextBlock x:Name="Summa05" Grid.Row="7" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center" />
             <TextBlock x:Name="Summa06" Grid.Row="8" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center" />
             <TextBlock x:Name="Summa07" Grid.Row="9" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center" />
+            <TextBlock x:Name="Summa08" Grid.Row="10" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center" />
             <TextBlock x:Name="Summa09" Grid.Row="11" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center" />
             <TextBlock x:Name="Summa10" Grid.Row="12" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center" />
             <TextBlock x:Name="Summa11" Grid.Row="13" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center" />
             <TextBlock x:Name="Summa12" Grid.Row="14" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center" />
             <TextBlock x:Name="Summa13" Grid.Row="15" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center" />
             <TextBlock x:Name="Summa14" Grid.Row="16" Grid.Column="3" Height="30" FontSize="20" TextAlignment="Center" />
-          
+            
+            
         </Grid>
 
     </Grid>
